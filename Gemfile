@@ -13,6 +13,22 @@ gem 'uglifier'
 
 gem 'jquery-rails'
 
+
+gem "haml"
+gem "mongoid", "~> 2.0"
+gem "bson_ext", "~> 1.2"
+
+group :development, :test  do
+    gem "cucumber-rails"
+    gem "capybara"
+    gem "database_cleaner"
+	gem "rspec"
+	gem "rspec-rails"
+	gem "cheat"
+	gem "factory_girl_rails"
+	gem "shoulda"
+end
+
 # Use unicorn as the web server
 # gem 'unicorn'
 
