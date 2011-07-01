@@ -1,0 +1,7 @@
+%div{ :id => "notice"}= notice
+= form_for(@interest) do |f| 
+  %div{:class => "field"}
+    = f.label "We will contact you" 
+    = f.text_field :text
+  %div{:class => "actions"}
+    = f.submit "Contact me"
