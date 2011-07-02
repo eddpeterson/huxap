@@ -1,5 +1,5 @@
 %div{ :id => "notice"}= notice
 = form_for(@interest) do |f| 
   %div{:class => "field"}
-    = f.text_field :text
+    = f.text_field :text, :size => 40
     = f.submit "Contact me"
