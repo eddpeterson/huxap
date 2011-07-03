@@ -40,7 +40,15 @@ Huxap::Application.routes.draw do
   #       get 'recent', :on => :collection
   #     end
   #   end
-
+  resources :home do
+    collection do
+      get 'about'
+      get 'contact'
+      get 'home'
+      get 'join'
+    end
+  end
+  
   # Sample resource route within a namespace:
   #   namespace :admin do
   #     # Directs /admin/products/* to Admin::ProductsController
@@ -51,7 +59,7 @@ Huxap::Application.routes.draw do
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
   # root :to => 'welcome#index'
-  root :to => 'interests#new'
+  root :to => 'home#home'
   
   # See how all your routes lay out with "rake routes"
 

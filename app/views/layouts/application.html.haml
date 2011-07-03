@@ -7,5 +7,26 @@
   = csrf_meta_tag
 
 %body
-
-= yield
+  #head
+    .container
+      %h1=link_to "Huxap", "/"
+      = render :partial => "/interests/new"
+  #flash
+    /- unless notice.blank?
+    /  .success
+    /    = notice
+    - unless alert.blank?
+      .alert
+        = alert
+  #menu
+    %ul
+      %li=link_to "Home", "/" #new_interest_path
+      %li=link_to "About us", "/home/about"
+      %li=link_to "Contact us", "/home/contact"
+      %li=link_to "Join us", "/home/join"
+  #content
+    .container
+      .column.span-24
+        = yield
+  #footer
+    = render :partial => "foot"
