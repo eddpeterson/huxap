@@ -1,8 +1,9 @@
 Huxap
 
 - Header with company name and menu and textbox where user can type in email or phone nr. and we will contact them
-# contact information is saved in db
-# email is sent to notify customer service at huxap
+# done. contact information is saved in db
+# done. email is sent to notify customer service at huxap
+# todo: send email asynchronously e.g. delayed_job, resqueue, rabbitmq
   + Home (Forside) # what we do # opens as a first page
   + Referances # coming later
   + About us # coming later
