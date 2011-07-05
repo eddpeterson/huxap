@@ -9,7 +9,8 @@
 %body
   #head
     .container
-      %h1=link_to "Huxap", "/"
+      %h1=link_to "Huxap", "/" 
+      %i Building software products 
       = render :partial => "/interests/new"
   #flash
     /- unless notice.blank?
@@ -24,9 +25,11 @@
       %li=link_to "About us", "/home/about"
       %li=link_to "Contact us", "/home/contact"
       %li=link_to "Join us", "/home/join"
+  %p ==================================================================
   #content
     .container
       .column.span-24
         = yield
+  %p ==================================================================
   #footer
     = render :partial => "foot"
