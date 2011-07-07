@@ -9,15 +9,19 @@ class InterestsController < ApplicationController
   def create
     @interest = Interest.new(params[:interest])
     respond_to do |format|
-      if @interest.save
+      @notice = "";
+      puts "isssssssssssssssssssss valid: #{is_valid?(@interest)}"
+      if is_valid?(@interest) and @interest.save
         InterestMailer.notify_huxap(@interest)
-        format.html { redirect_to :back, :notice => 'Thanks, we contact you shortly!' }
+        @notice = "Thanks, we contact you shortly!"
         #format.html { redirect_to(@interest, :notice => 'Thanks, we contact you shortly!') }
-        #redirect_to :back
-      else
-        format.html { render :action => "new" }
+        #redirect_to :back        
       end
+      format.html { redirect_to :back, :notice => @notice }
     end
   end
-
+  
+  def is_valid? interest
+    interest.text != Interest.empty_text
+  end  
 end

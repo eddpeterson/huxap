@@ -6,28 +6,35 @@ describe InterestsController do
     post :create, interest
   end
   
-  context "Add new interested contact and notify huxap" do
-    
+  context "Add new interested contact" do
+    @interest_text = "jack.welch@ge.com"
     before(:each) do
-      Interest.stub!(:new).and_return(@interest = mock_model(Interest, :save=>true))
+      Interest.stub!(:new).and_return(@interest = mock_model(Interest, :save=>true, :text => @interest_text))
       InterestMailer.stub!(:notify_huxap)
     end    
     
     it "should recieve interest text from post" do
-      Interest.should_receive(:new).with("text"=>"Jack.Welch@ge.com")
-      do_create :interest => {:text=>"Jack.Welch@ge.com"}
+      Interest.should_receive(:new).with("text"=>"suzy@ge.com")
+      do_create :interest => {:text=>"suzy@ge.com"}
     end 
-    it "saves model" do
+    it "should save model when text is passed" do
       @interest.should_receive(:save).and_return(true)
-      do_create :interest => {:text=>"Jack.Welch@ge.com"}
+      InterestsController.stub!(:is_valid?).with(any_args()).and_return(true)
+      do_create :interest => {:text=>"greg@ge.com"}
     end 
   end
   
+
+  
   context "Send email to notify Huxap" do
     it "send's email notification" do
-      Interest.stub!(:new).and_return(@interest = mock_model(Interest, :save=>true))
+      Interest.stub!(:new).and_return(@interest = mock_model(Interest, :save=>true, :text => "Jack.Welch@ge.com"))
+      InterestsController.stub!(:is_valid?).with(any_args()).and_return(true)
       InterestMailer.should_receive(:notify_huxap).with(@interest)
       do_create :interest => {:text=>"Jack.Welch@ge.com"}
     end
   end
+  
+  
+  
 end

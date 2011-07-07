@@ -5,31 +5,25 @@
   = stylesheet_link_tag :application
   = javascript_include_tag :application
   = csrf_meta_tag
+  <!--[if lt IE 8]><link rel="stylesheet" href="css/blueprint/ie.css" type="text/css" media="screen, projection"><![endif]-->
 
 %body
-  #head
-    .container
-      %h1=link_to "Huxap", "/" 
-      %i Building software products 
-      = render :partial => "/interests/new"
-  #flash
-    /- unless notice.blank?
-    /  .success
-    /    = notice
-    - unless alert.blank?
-      .alert
-        = alert
-  #menu
-    %ul
+  .container
+    / HEAD
+    %div{:class => "span-4 colborder"}
+      %h1=link_to "Huxap", "/"
+      .quiet
+        %i Building software products
+    %div{:class => "span-12 menu"}
       %li=link_to "Home", "/" #new_interest_path
       %li=link_to "About us", "/home/about"
       %li=link_to "Contact us", "/home/contact"
-      %li=link_to "Join us", "/home/join"
-  %p ==================================================================
-  #content
-    .container
-      .column.span-24
-        = yield
-  %p ==================================================================
-  #footer
+      %li=link_to "Join us", "/home/join" 
+    %div{:class => "span-6 last"}
+      = render :partial => "/interests/new"	
+    %hr
+    / MAIN
+    = yield
+    / FOOT 
+    %hr
     = render :partial => "foot"

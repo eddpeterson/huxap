@@ -15,3 +15,4 @@ Huxap
 - deployment
 - fix one test pending
 - extract password to seperate file and exclude that file from git
+- how to test empty interest text functionality, how to mock properly

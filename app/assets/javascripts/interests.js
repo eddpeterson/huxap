@@ -14,5 +14,6 @@ function watermark(id, watermarkText, watermarkColor, activeColor) {
 
 
 jQuery(document).ready( function() {
-  watermark('#interest_text', 'leave email or phone, we contact you', '#ccc', 'green');
+  var watermarkText = $j('#interest_empty_text').val();
+  watermark('#interest_text', watermarkText, '#aaa', '#205791');
 });

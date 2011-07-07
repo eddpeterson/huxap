@@ -1,5 +1,8 @@
-%div{ :id => "notice"}= notice
+.silent
+  - unless notice.blank?
+    .weContactYouConfirmation= notice
 = form_for(@interest = Interest.new) do |f| 
-  %div{:class => "field"}
+  %input{:id => "interest_empty_text", :type => "hidden", :value => Interest.empty_text}
+  %div{:class => ""} 
     = f.text_field :text, :size => 40
     = f.submit "Contact me"
