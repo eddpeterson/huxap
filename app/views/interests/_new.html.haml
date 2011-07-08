@@ -1,8 +1,9 @@
-.silent
+= form_for(@interest = Interest.new) do |f|
   - unless notice.blank?
-    .weContactYouConfirmation= notice
-= form_for(@interest = Interest.new) do |f| 
-  %input{:id => "interest_empty_text", :type => "hidden", :value => Interest.empty_text}
-  %div{:class => ""} 
-    = f.text_field :text, :size => 40
-    = f.submit "Contact me"
+    .silent
+      .weContactYouConfirmation= notice
+  - else
+    %input{:id => "interest_empty_text", :type => "hidden", :value => Interest.empty_text}
+    %input{:id=>"interest_text", :name=>"interest[text]", :type=>"text", :class=>"interestText", :size=>"50" }
+    %button{:type=>"submit", :class=>"button positive"} 
+      %img{:src=>"/assets/tick.png", :alt=>""} Contact me

@@ -10,7 +10,6 @@ class InterestsController < ApplicationController
     @interest = Interest.new(params[:interest])
     respond_to do |format|
       @notice = "";
-      puts "isssssssssssssssssssss valid: #{is_valid?(@interest)}"
       if is_valid?(@interest) and @interest.save
         InterestMailer.notify_huxap(@interest)
         @notice = "Thanks, we contact you shortly!"
