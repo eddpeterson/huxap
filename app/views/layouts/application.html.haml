@@ -10,7 +10,7 @@
 %body
   .container
     / HEAD
-    %div{:class => "span-4 colborder showgrid"}
+    %div{:class => "span-4 colborder"}
       %h1=link_to "Huxap", "/"
       .quiet
         %i Building software products
@@ -26,6 +26,7 @@
     = yield
     / FOOT 
     %hr
-    = render :partial => "foot"
-    %div{:class => "span-24 interestCenter"}
+    %div{:class => "span-24 centerText"}
+      = render :partial => "foot"
+    %div{:class => "span-24 centerText"}
       = render :partial => "/interests/new"	
