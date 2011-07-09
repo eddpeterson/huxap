@@ -43,5 +43,7 @@ module Huxap
 
     # Enable the asset pipeline
     config.assets.enabled = true
+    
+    
   end
 end

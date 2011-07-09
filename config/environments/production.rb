@@ -41,7 +41,16 @@ Huxap::Application.configure do
 
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false
-
+  config.action_mailer.delivery_method = :smtp #:smtp or :test
+  config.action_mailer.smtp_settings = {
+    :address              => "smtp.gmail.com",
+    :port                 => 587,
+    :domain               => 'localhost',
+    :user_name            => ENV['contact_me_user_name'],
+    :password             => ENV['contact_me_password'],
+    :authentication       => 'plain',
+    :enable_starttls_auto => true  }
+    
   # Enable threaded mode
   # config.threadsafe!
 

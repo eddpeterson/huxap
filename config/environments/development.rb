@@ -1,3 +1,5 @@
+require 'yaml'
+
 Huxap::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
@@ -15,13 +17,13 @@ Huxap::Application.configure do
 
   # Don't care if the mailer can't send
   # config.action_mailer.raise_delivery_errors = false
-  config.action_mailer.delivery_method = :test #:smtp or :test
+  config.action_mailer.delivery_method = :smtp #:smtp or :test
   config.action_mailer.smtp_settings = {
     :address              => "smtp.gmail.com",
     :port                 => 587,
     :domain               => 'localhost',
-    :user_name            => 'huxaptest@gmail.com',
-    :password             => 'edijsiscool',
+    :user_name            => ENV['contact_me_user_name'] || 'huxaptest@gmail.com',
+    :password             => ENV['contact_me_password'] || 'edijsiscool',
     :authentication       => 'plain',
     :enable_starttls_auto => true  }
 
