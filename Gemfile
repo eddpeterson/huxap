@@ -8,8 +8,8 @@ gem 'rails', '3.1.0.rc4'
 
 # Asset template engines
 gem 'sass-rails', "~> 3.1.0.rc"
-#gem 'coffee-script'
-#gem 'uglifier'
+gem 'coffee-script'
+gem 'uglifier'
 
 gem 'jquery-rails'
 
@@ -29,9 +29,9 @@ group :development, :test  do
 	gem "shoulda"
 end
 
-#group :production do
-#  gem 'therubyracer-heroku', '0.8.1.pre3'
-#end
+group :production do
+  gem 'therubyracer-heroku', '0.8.1.pre3'
+end
 
 # Use unicorn as the web server
 # gem 'unicorn'
